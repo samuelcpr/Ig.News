@@ -8,10 +8,12 @@
     align-items: center;
     justify-content: space-between;
 
+
 }
 
 .hero {
-    max-width: 600;
+    max-width: 900;
+    margin-right: 2rem;
 
     >span {
         font-size: 1.5rem;
@@ -38,6 +40,10 @@
     span {
         color: var(--cyan-580);
         font-weight: bold;
+    }
+
+    button {
+        margin-top: 2.5rem;
     }
 
 }
