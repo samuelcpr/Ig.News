@@ -10,12 +10,13 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       authorization: {
         params: {
-          scope: "repo",
+          scope: "read:user",
         },
       },
     }),
     // ...add more providers here
   ],
+
   callbacks: {
     async session({ session }) {
       try {
