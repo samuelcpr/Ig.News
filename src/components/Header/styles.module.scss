@@ -1,7 +1,6 @@
 .headerContainer {
     height: 5rem;
     border-bottom: 1px solid var(--gray-800);
-    margin-bottom: 10rem;
 }
 
 .headerContent {
@@ -21,8 +20,10 @@
             display: inline-block;
             position: relative;
             padding: 0 0.5rem;
+            height: 5rem;
             line-height: 5rem;
             color: var(--gray-300);
+
             transition: color 0.2s;
 
             &+a {
@@ -31,7 +32,6 @@
 
             &:hover {
                 color: var(--white);
-
             }
 
             &.active {
@@ -45,10 +45,9 @@
                 border-radius: 3px 3px 0 0;
                 width: 100%;
                 position: absolute;
-                bottom: 2px;
+                bottom: 1px;
                 left: 0;
                 background: var(--yellow-500);
-
             }
         }
     }
