@@ -6,33 +6,38 @@ import styles from './styles.module.scss'
 
 interface SubscribeButtonProps {
     priceId: string
+
+    /**
+     * Locais onde podemos usar a chaves secretas 
+     * getSeverSideProps(SSR)
+     * getStaticProps (SSG)
+     * API routes
+     */
 }
 export function SubscribeButton({ priceId }: SubscribeButtonProps) {
-    const { data: session } = useSession()
-    const router = useRouter()
+    const { data: session } = useSession();
 
     async function handleSubscribe() {
         if (!session) {
             signIn('github')
-            return
+            return;
         }
 
-        if (session.activeSubscription) {
-            router.push('/posts')
-            return
-        }
-
+        // criação da checkout session
         try {
-            const response = await api.post('/subscribe')
+            const response = await api.post('/subscribe') // o nome do arquivo sempre é o nome darota
 
-            const { sessionId } = response.data
+            const { sessionId } = response.data;
 
+            // redirecionar o usuario
             const stripe = await getStripeJs()
 
             await stripe.redirectToCheckout({ sessionId })
-        } catch (error) {
-            alert(error.message)
+        } catch (err) {
+            alert(err.message)
         }
+
+
     }
 
     return (

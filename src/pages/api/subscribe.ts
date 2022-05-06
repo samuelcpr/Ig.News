@@ -14,6 +14,7 @@ type User = {
 };
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+  // sempre que for criar a requisição é com 'post'
   if (req.method === "POST") {
     const session = await getSession({ req });
     const user = await fauna.query<User>(
@@ -34,12 +35,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
       customerId = stripeCustomer.id;
     }
-
+     
     const stripeCheckoutSession = await stripe.checkout.sessions.create({
       customer: customerId,
       payment_method_types: ["card"],
       billing_address_collection: "required",
-      line_items: [{ price: "price_1K4B8gEtCstiIJS73Kv2gboL", quantity: 1 }],
+      line_items: [{ price: "price_1KvikpHIKBGg39yvstVNkIQC", quantity: 1 }],
       mode: "subscription",
       allow_promotion_codes: true,
       success_url: process.env.STRIPE_SUCCESS_URL,
