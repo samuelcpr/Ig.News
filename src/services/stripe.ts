@@ -1,6 +1,6 @@
 // aquivo que vai definir a conexão com a API do stri
 
-import { version } from "react";
+
 import Stripe from "stripe";
 
 export const stripe = new Stripe(
@@ -9,7 +9,7 @@ export const stripe = new Stripe(
   apiVersion: "2020-08-27",
   appInfo: {
     name: "Ignews",
-    version
+   
   },
  }
 );
