@@ -18,6 +18,7 @@ export const config = {
   api: { bodyParser: false },
 };
 
+// eventos a serem ouvidos pelo stripe
 const relevantEvents = new Set([
   "checkout.session.completed",
   "customer.subscription.created",
